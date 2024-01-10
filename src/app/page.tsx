@@ -1,11 +1,13 @@
-import { array } from 'prop-types'
+'use client'
 import styles from './page.module.css'
 
-function niko(){
-  return ""
-}
 export default function Home() {
   const tasks=["poop","eat","gym"]
+
+  function pushing() {
+      console.log("test")
+  }
+
   return (
     <main className={styles.main}>
       <h1>Niko's to do list</h1>
@@ -13,6 +15,9 @@ export default function Home() {
       <ol>
       {tasks.map((value, index) => {return  <li>{value}</li> })}
       </ol>
+      
+      <button onClick={pushing}>add</button>
+      
     </main>
   )
 }
