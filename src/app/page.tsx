@@ -6,15 +6,17 @@ import React, { useState } from 'react'
 export default function Home() {
   const [tasks,setTasks]=useState<string[]>([])
   let usertasks = ""
-
+  
   function deleteTask(index: number){
-    let arrslice = tasks.slice(index + 1)
-    setTasks(arrslice)
-    console.log("test",index)
+    const newtasks = [...tasks]
+
+    newtasks.splice(index, 1)
+
+    setTasks(newtasks)
   }
   function pushing() {
     setTasks([...tasks,usertasks])
-    console.log(tasks)
+    console.log(tasks, usertasks)
   }
 
   function handlechange(event: React.ChangeEvent<HTMLInputElement>){
