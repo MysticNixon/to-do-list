@@ -158,3 +158,42 @@ a {
 .deletefunc{
   margin-left: 10px;
 }
+
+.completed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.completed-task-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.completed-line{
+  width: 50%;
+  size: 3;
+  color: black;
+  margin: 30px auto;
+}
+.submit-title{
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;
+}
+.checkbox{
+  margin-right: 10px;
+}
+.completed-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.completed-task-list{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
