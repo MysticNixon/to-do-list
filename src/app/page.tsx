@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 
 export default function Home() {
   const [tasks,setTasks]=useState<string[]>([])
-  let usertasks = ""
+  const [userTasks, setUserTasks] = useState<string>("")
   
   function deleteTask(index: number){
     const newtasks = [...tasks]
@@ -15,29 +15,34 @@ export default function Home() {
     setTasks(newtasks)
   }
   function pushing() {
-    setTasks([...tasks,usertasks])
-    console.log(tasks, usertasks)
+    setTasks([...tasks,userTasks])
   }
 
-  function handlechange(event: React.ChangeEvent<HTMLInputElement>){
-    usertasks = event.target.value
+  function handlechange(event: React.ChangeEvent<HTMLInputElement>){ 
+    setUserTasks(event.target.value)
   }
   return (
-    <main className={styles.main}>
-      <h1>Niko's to do list</h1>
-      <input type="text" onChange={handlechange}/>    
-      <ol>
-      {tasks.map((value, index) => {return (
-        <div key={Math.random()*1000} >
-          <li>
-            {value}
-          </li>
-          <button onClick={()=>deleteTask(index)}>X</button>
+    <main className={[styles.main, 'center'].join(" ")}>
+      <link rel='style' href='page.module.css'></link>
+      <h1 className='title'>to do list</h1>
+      <hr className='line'/>
+      <div className='main-container'>
+        <div className='input-bar-container'>
+          <div><input className='inputbar' type="text" onChange={handlechange}/>
+          <button className='submit' onClick={pushing}>+</button></div>
+          <ol className='list'>
+          {tasks.map((value, index) => {return (
+            <div key={Math.random() * 1000} className='list-item' >
+              <li className='mainlist'>
+                {value}
+              </li>
+              <button className='deletefunc' onClick={()=>deleteTask(index)}>X</button>
+            </div>
+          )})}
+        </ol>
         </div>
-      )})}
-      </ol>
-      
-      <button onClick={pushing}>add</button>
+        
+      </div>
     </main>
   )
 }
