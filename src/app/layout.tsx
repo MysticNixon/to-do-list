@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'to do list',
-  description: 'gggggg',
+  description: 'A simple to do list application built with React and CSS.',
 }
 
 export default function RootLayout({
